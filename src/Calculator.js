@@ -4,14 +4,6 @@ import Button from './Button';
 const Calculator = () => {
     const [input, setInput] = useState('');
 
-    const handleButtonClick = (value) => {
-        setInput((prevInput) => prevInput + value);
-    };
-
-    const handleClear = () => {
-        setInput('');
-    };
-
     const handleCalculate = () => {
         try {
             setInput(eval(input).toString());
@@ -20,10 +12,18 @@ const Calculator = () => {
         }
     };
 
+    const handleClear = () => {
+        setInput('');
+    };
+
+    const handleButtonClick = (value) => {
+        setInput((prevInput) => prevInput + value);
+    };
+
     return (
         <div className="calculator">
             <input type="text" value={input} readOnly />
-            <div className="button-grid">
+            <div className="buttongrid">
                 <Button label="1" onClick={() => handleButtonClick('1')} />
                 <Button label="2" onClick={() => handleButtonClick('2')} />
                 <Button label="3" onClick={() => handleButtonClick('3')} />
